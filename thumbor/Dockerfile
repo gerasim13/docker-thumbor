@@ -8,13 +8,6 @@ RUN \
     apt-get install nginx-full && \
     apt-get clean
 
-COPY circus.d/nginx.ini.tpl /etc/circus.d/
-COPY setup.d/nginx /etc/setup.d/30-nginx
-COPY conf/nginx.conf /etc/nginx/nginx.conf
-
-VOLUME /logs
-VOLUME /data
-
 # Things required for a python/pip environment
 RUN  \
     apt-get update && \
@@ -59,6 +52,13 @@ COPY conf/thumbor.conf.tpl /code/thumbor.conf.tpl
 # Include opencv in virtualenv
 RUN su -c "ln -s /usr/lib/python2.7/dist-packages/cv2.so /code/env/lib/python2.7/site-packages/cv2.so" thumbor
 RUN su -c "ln -s /usr/lib/python2.7/dist-packages/cv.py /code/env/lib/python2.7/site-packages/cv.py" thumbor
+
+COPY circus.d/nginx.ini.tpl /etc/circus.d/
+COPY setup.d/nginx /etc/setup.d/30-nginx
+COPY conf/nginx.conf /etc/nginx/nginx.conf
+
+VOLUME /logs
+VOLUME /data
 
 # nginx thumbor
 EXPOSE 80 8000
