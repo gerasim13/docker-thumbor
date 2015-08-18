@@ -17,7 +17,7 @@ RUN  \
     python python-dev python-distribute python-pip \
     libdc1394-22 libdc1394-22-dev libjpeg-dev \
     libpng12-dev libtiff4-dev libjasper-dev \
-    libjpeg-turbo-progs && \
+    libjpeg-turbo-progs gifsicle && \
     apt-get clean
 
 # thumbor user and dirs
