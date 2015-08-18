@@ -1,5 +1,5 @@
 FROM apsl/circusbase
-MAINTAINER Edu Herraiz <eherraiz@apsl.net>
+MAINTAINER Justin Tulloss <justin.tulloss@gmail.com>
 
 #nginx
 RUN \
