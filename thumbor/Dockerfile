@@ -50,10 +50,6 @@ RUN \
     mkdir -p /data;\
     chown thumbor.thumbor /data -R
 
-# thumbor conf
-COPY setup.d/thumbor /etc/setup.d/40-thumbor
-COPY circus.d/thumbor.ini.tpl /etc/circus.d/
-
 RUN set -x && \
     python2_7_10='/usr/local/lib/python2.7.10/bin/python' && \
     pip2_7_10='/usr/local/lib/python2.7.10/bin/pip' && \
@@ -79,6 +75,10 @@ RUN set -x && \
     su -c "$pybin/pew-in env pip install -r /code/requirements.txt" thumbor
 COPY conf/thumbor.conf.tpl /code/thumbor.conf.tpl
 
+
+# thumbor conf
+COPY setup.d/thumbor /etc/setup.d/40-thumbor
+COPY circus.d/thumbor.ini.tpl /etc/circus.d/
 
 COPY circus.d/nginx.ini.tpl /etc/circus.d/
 COPY setup.d/nginx /etc/setup.d/30-nginx
