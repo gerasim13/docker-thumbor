@@ -1,0 +1,15 @@
+circus==0.11.1
+circus-web==0.5
+envtpl==0.3.2
+mako
+jinja2
+beaker
+psutil
+tornado
+pyzmq
+bottle
+anyjson
+greenlet
+gevent
+gevent-websocket
+distribute
